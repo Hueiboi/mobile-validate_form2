@@ -1,8 +1,9 @@
-# **BT4.3: ValidateForm**
+# **BT6.1: ValidateForm2**
 - Họ và tên: Bùi Đình Hiếu
 - MSV: 23810310246
 - Lớp: D18CNPM4
 ---
 [anh1](./assets/anh1.jpg)
 [anh2](./assets/anh2.jpg)
-[anh3](./assets/anh3.jpg)# mobile-validate_form2
+[anh3](./assets/anh3.jpg)
+[anh4](./assets/anh4.jpg)
