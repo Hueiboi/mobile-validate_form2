@@ -1,7 +1,8 @@
-import React, { useState, useEffect, use } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
-import { Ionicons, MaterialIcons } from '@expo/vector-icons'; // Dùng để lấy icon mũi tên back
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
 
 const NumberInputScreen = () => {
   const [welcome, setWelcome] = useState('Welcome to our mobile app, please enter your phone number');
@@ -9,6 +10,7 @@ const NumberInputScreen = () => {
   const [formattedPhone, setFormattedPhone] = useState('');
   const [error, setError] = useState('');
   const insets = useSafeAreaInsets();
+  const navigation = useNavigation();
 
   useEffect(() => {
     Alert.alert(welcome);
@@ -69,7 +71,11 @@ const NumberInputScreen = () => {
       Alert.alert('Thông báo', finalError);
       return;
     }
-    Alert.alert('Thành công', `Số điện thoại đã nhập: ${formatPhone(rawPhone)}`);
+    try {
+      navigation.navigate('Home');
+    } catch (e) {
+      Alert.alert('Lỗi', 'Không thể chuyển màn hình. Thử lại sau.');
+    }
   };
 
   const onPressConfirm = () => {
