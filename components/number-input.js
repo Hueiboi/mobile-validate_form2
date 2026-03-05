@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, use } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons'; // Dùng để lấy icon mũi tên back
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const NumberInputScreen = () => {
+  const [welcome, setWelcome] = useState('Welcome to our mobile app, please enter your phone number');
   const [rawPhone, setRawPhone] = useState('');
   const [formattedPhone, setFormattedPhone] = useState('');
   const [error, setError] = useState('');
   const insets = useSafeAreaInsets();
+
+  useEffect(() => {
+    Alert.alert(welcome);
+  },[])
 
   const key = [
         {num: '1', sub: ''}, {num: '2', sub: 'ABC'}, {num: '3', sub: 'DEF'}, {num: '-', sub: ''},
